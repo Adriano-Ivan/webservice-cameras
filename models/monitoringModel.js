@@ -15,7 +15,7 @@ const monitoringSchema = new mongoose.Schema({
         required:[true, "A monitoring must has a version"]
     },
     placa:{
-        type:Number,
+        type:String,
         required:[true,'A number plate must be specified']
     },
     dataInicio:{

@@ -1,3 +1,4 @@
+const State=require('./../models/stateModel').State;
 exports.getAllStates = (req, res) => {
   res.status(500).json({
     status: "error",

@@ -1,3 +1,4 @@
+const ImageCapture=require('./../models/imageCaptureModel').Image
 exports.getAllImageCaptures = (req, res) => {
   res.status(500).json({
     status: "error",

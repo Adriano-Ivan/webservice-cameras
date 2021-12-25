@@ -1,3 +1,4 @@
+const Country=require('./../models/countryModel').Country;
 exports.getAllCountries = (req, res) => {
   res.status(500).json({
     status: "error",

@@ -1,3 +1,4 @@
+const History=require('./../models/historyModel').History;
 exports.getAllHistoric = (req, res) => {
   res.status(500).json({
     status: "error",

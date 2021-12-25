@@ -1,56 +1,60 @@
 const Monitoring = require('./../models/monitoringModel').Monitoring;
 
-exports.checkBody = (req, res, next) => {
-  console.log("MIDDLE");
-  console.log(req.body);
-  if (
-    !req.body.placa ||
-    !req.body.dataInicio ||
-    !req.body.isContinuo ||
-    !req.body.createdAt
-  ) {
-    return res.status(400).json({
-      status: "fail",
-      message: "Missing field",
+
+exports.getAllMonitorings = async(req, res) => {
+  try{
+    const monitorings = await Monitoring.find();
+    res.status(200).json({
+      status: "success",
+    
+      results: monitorings.length,
+      data:{
+        monitorings
+      },
     });
+  }catch(err){
+    res.status(400).json({
+      status:'fail',
+      message:err
+    })
   }
-  next();
-};
-exports.getAllMonitorings = (req, res) => {
-  res.status(200).json({
-    status: "success",
-    requestedAt: req.requestTime,
-    results: monitoringsExample.length,
-    data: monitoringsExample,
-  });
+  
 };
 
-exports.getMonitoringById = (req, res) => {
-  const monitoring = monitoringsExample.find(
-    (m) => m["id"] === req.params["id"] * 1
-  );
-  //   const statusN = monitoring !== undefined ? 200 : 404;
-  console.log(req.params);
-  res.status(200).json({
-    status: "success",
-
-    data: monitoring,
-  });
+exports.getMonitoring =async(req, res) => {
+  try{
+    const monitoring =await Monitoring.findById(req.params.id);
+    res.status(200).json({
+      status:'success',
+      data:{
+        monitoring
+      }
+    })
+  }catch(err){
+    res.status(400).json({
+      status:'fail',
+      message:err
+    })
+  }
 };
-exports.createMonitoring = (req, res) => {
-  //console.log(req.body);
-  const newId = monitoringsExample[monitoringsExample.length - 1].id + 1;
+exports.createMonitoring =async (req, res) => {
+  try {
+    const newMonitoring=await Monitoring.create(req.body)
 
-  const newMonitoring = Object.assign({ id: newId }, req.body);
-
-  monitoringsExample.push(newMonitoring);
-  console.log(newMonitoring);
-  res.status(201).json({
-    status: "success",
-    data: {
-      tour: newMonitoring,
-    },
-  });
+    console.log(newMonitoring);
+    res.status(201).json({
+      status: "success",
+      data: {
+        tour: newMonitoring,
+      },
+    });
+  }catch(err){
+    res.status(400).json({
+      status:"fail",
+      message:err
+    })
+  }
+  
 };
 exports.updateMonitoring = (req, res) => {
   const status =

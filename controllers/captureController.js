@@ -1,3 +1,4 @@
+const Capture=require('./../models/captureModel').Capture;
 exports.getAllCaptures = (req, res) => {
   res.status(500).json({
     status: "error",

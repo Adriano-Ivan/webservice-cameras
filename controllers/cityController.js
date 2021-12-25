@@ -1,3 +1,4 @@
+const City=require('./../models/cityModel').City;
 exports.getAllCities = (req, res) => {
   res.status(500).json({
     status: "error",

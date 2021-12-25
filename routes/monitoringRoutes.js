@@ -7,11 +7,11 @@ const monitoringController = require("./../controllers/monitoringController");
 router
   .route("/")
   .get(monitoringController.getAllMonitorings)
-  .post(monitoringController.checkBody, monitoringController.createMonitoring);
+  .post( monitoringController.createMonitoring);
 
 router
   .route("/:id")
-  .get(monitoringController.getMonitoringById)
+  .get(monitoringController.getMonitoring)
   .patch(monitoringController.updateMonitoring)
   .delete(monitoringController.deleteMonitoring);
 

@@ -1,3 +1,4 @@
+const Camera=require('./../models/cameraModel').Camera;
 exports.getAllCameras = (req, res) => {
   res.status(500).json({
     status: "error",

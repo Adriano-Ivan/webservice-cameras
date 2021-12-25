@@ -83,3 +83,14 @@ db.estados.insertOne({estado:"Paraná", pais:{pais: "Brasil"}})
 
 // Cidades
  db.cidades.insertOne({cidade:"ex", pais:{pais: "Brasil"}})
+
+
+
+// Monitoramentos - Postman
+{"createdAt":"2020-09-15T18:33:21","updatedAt":"2020-09-18T18:33:21", 
+"version": "1", "placa": "JJK2882", "dataInicio":"2020-09-15T18:33:21",
+ "dataFim":"2020-09-28T18:33:21", "observacoes": "['Caso Fechado']",
+ "isContinuo":"0", "usuario":{"createdAt":"2020-08-15T18:33:21", 
+"updatedAt": "2020-09-18T18:33:21", "version": "1", "nome":"Vlad","email":"vlad2@email.com",
+"senha":"$2a$10$3iOMcZ5MqU96QeBkmFSGMul.MC/zl/vp2GgBj2fkkRj0xTg85qYdC",
+ "isEmailVerificado":"true","token":"exemplo", "isAtivo":"false", "permissao":"ADMIN"}}
