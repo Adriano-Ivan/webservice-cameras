@@ -1,55 +1,5 @@
-const monitoringsExample = [
-  {
-    id: 1,
-    createdAt: "2020-09-15",
-    updatedAt: "2020-09-18",
-    version: 1,
-    placa: "JJK2882",
-    dataInicio: "2020-09-15",
-    dataFim: "2020-09-28",
-    observacoes: "Caso fechado",
-    isContinuo: 0,
-    status: "NENHUMA OCORRÊNCIA",
-    usuarioId: 1,
-  },
-  {
-    id: 2,
-    createdAt: "2020-09-20",
-    updatedAt: "2020-09-25",
-    version: 1,
-    placa: "ABK2882",
-    dataInicio: "2020-09-20",
-    dataFim: "2020-09-28",
-    observacoes: "Caso importantíssimo",
-    isContinuo: 0,
-    status: "Ocorrência encontrada",
-    usuarioId: 1,
-  },
-  {
-    id: 3,
-    createdAt: "2020-09-25",
-    updatedAt: "2020-09-29",
-    version: 1,
-    placa: "dk22882",
-    dataInicio: "2020-09-25",
-    dataFim: "2020-09-30",
-    observacoes: "Caso primário",
-    isContinuo: 0,
-    status: "Ocorrência encontrada",
-    usuarioId: 1,
-  },
-];
+const Monitoring = require('./../models/monitoringModel').Monitoring;
 
-exports.checkID = (req, res, next, val) => {
-  console.log(`Monitoring ID: ${req.params.id}`);
-  if (req.params.id * 1 > monitoringsExample.length) {
-    return res.status(400).json({
-      status: "fail",
-      message: "Invalid ID",
-    });
-  }
-  next();
-};
 exports.checkBody = (req, res, next) => {
   console.log("MIDDLE");
   console.log(req.body);
@@ -122,3 +72,14 @@ exports.deleteMonitoring = (req, res) => {
     },
   });
 };
+
+// exports.checkID = (req, res, next, val) => {
+//   console.log(`Monitoring ID: ${req.params.id}`);
+//   if (req.params.id * 1 > monitoringsExample.length) {
+//     return res.status(400).json({
+//       status: "fail",
+//       message: "Invalid ID",
+//     });
+//   }
+//   next();
+// };

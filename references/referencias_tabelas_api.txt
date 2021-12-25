@@ -1,0 +1,85 @@
+use monitoramentos
+
+// Monitoramentos
+db.monitoramentos.insertOne({createdAt:new Date("<2020-09-15T18:33:21>"),updatedAt:new Date("<2020-09-18T18:33:21>"), 
+version: 1, placa: "JJK2882", dataInicio:new Date("<2020-09-15T18:33:21>"),
+ dataFim:new Date("<2020-09-28T18:33:21>"), observacoes: ["Caso Fechado"],
+ isContinuo:0, usuario:{createdAt:new Date("<2020-08-15T18:33:21>"), 
+updatedAt: new Date("<2020-09-18T18:33:21>"), version: 1, nome:"Vlad",email:"vlad@email.com",
+senha:"$2a$10$3iOMcZ5MqU96QeBkmFSGMul.MC/zl/vp2GgBj2fkkRj0xTg85qYdC",
+ isEmailVerificado:true,token:"exemplo", isAtivo:false, permissao:"ADMIN"}})
+
+// Usuários
+ db.usuarios.insertOne({createdAt:new Date("<2020-08-15T18:33:21>"),
+ updatedAt: new Date("<2020-09-18T18:33:21>"), version: 1, nome:"Vlad",email:"vlad@email.com",
+ senha:"$2a$10$3iOMcZ5MqU96QeBkmFSGMul.MC/zl/vp2GgBj2fkkRj0xTg85qYdC",
+  isEmailVerificado:true,token:"exemplo", isAtivo:false, permissao:"ADMIN"})
+
+// Câmeras
+db.cameras.insertOne({createdAt:new Date("<2020-09-15T18:33:21>"),
+ updatedAt: new Date("<2020-08-15T18:33:21>"), version:1, nome:"EX", 
+mac: "ex", observacoes:["EX"], localizacao:{longitude:"dkj",latitude:"ex",cidade:{cidade:"ex",pais:{pais: "Brasil"}}})
+
+// Capturas
+ db.capturas.insertOne({createdAt:new Date("<2021-05-23T18:33:21>"), 
+updatedAt:new Date("<2020-08-19T18:33:21>"), version: 1,placa:"kjk2323",
+ dataHora: new Date("<2020-08-29T18:33:21>"),detalhes:["EX"],
+ monitoramento: {createdAt:new Date("<2020-09-15>"),updatedAt:new Date("<2020-09-18T18:33:21>"),
+version: 1, placa: "JJK2882", dataInicio:new Date("<2020-09-15T18:33:21>"),
+  dataFim:new Date("<2020-09-28T18:33:21>"), observacoes: ["Caso Fechado"],
+ isContinuo:0, usuario:{createdAt:new Date("<2020-08-15T18:33:21>"),
+updatedAt: new Date("<2020-09-18T18:33:21>"), version: 1, nome:"Vlad",email:"vlad@email.com",
+senha:"$2a$10$3iOMcZ5MqU96QeBkmFSGMul.MC/zl/vp2GgBj2fkkRj0xTg85qYdC",
+ isEmailVerificado:true,token:"exemplo", isAtivo:false, permissao:"ADMIN"}},
+ camera:{createdAt:new Date("<2020-09-15T18:33:21>"),
+  updatedAt: new Date("<2020-08-15T18:33:21>"), version:1, nome:"EX",
+ mac: "ex", observacoes:["EX"], localizacao:{longitude:"dkj",latitude:"ex",
+cidade:"ex"}}})
+
+// Históricos de Edição de Captura
+db.historicosEdicaoCaptura.insertOne({createdAt:new Date("<2020-09-18T18:33:21>"), updatedAt: new Date("<2020-09-18T18:33:21>"), version:1, valorAnterior: "ex",valorAtual:"ex2",captura:{createdAt:new Date("<2021-05-23T18:33:21>"),
+ updatedAt:new Date("<2020-08-19T18:33:21>"), version: 1,placa:"kjk2323",
+ dataHora: new Date("<2020-08-29T18:33:21>"),detalhes:["EX"],
+ monitoramento: {createdAt:new Date("<2020-09-15>"),updatedAt:new Date("<2020-09-18T18:33:21>"),
+version: 1, placa: "JJK2882", dataInicio:new Date("<2020-09-15T18:33:21>"),
+  dataFim:new Date("<2020-09-28T18:33:21>"), observacoes: ["Caso Fechado"],
+  isContinuo:0, usuario:{createdAt:new Date("<2020-08-15T18:33:21>"),
+updatedAt: new Date("<2020-09-18T18:33:21>"), version: 1, nome:"Vlad",email:"vlad@email.com",
+senha:"$2a$10$3iOMcZ5MqU96QeBkmFSGMul.MC/zl/vp2GgBj2fkkRj0xTg85qYdC",
+  isEmailVerificado:true,token:"exemplo", isAtivo:false, permissao:"ADMIN"}},
+  camera:{createdAt:new Date("<2020-09-15T18:33:21>"),
+ updatedAt: new Date("<2020-08-15T18:33:21>"), version:1, nome:"EX",
+ mac: "ex", observacoes:["EX"], localizacao:{longitude:"dkj",latitude:"ex",
+cidade:"ex"}}},usuario: {createdAt:new Date("<2020-08-15T18:33:21>"),
+  updatedAt: new Date("<2020-09-18T18:33:21>"), version: 1, nome:"Vlad",email:"vlad@email.com",
+  senha:"$2a$10$3iOMcZ5MqU96QeBkmFSGMul.MC/zl/vp2GgBj2fkkRj0xTg85qYdC",
+  isEmailVerificado:true,token:"exemplo", isAtivo:false, permissao:"ADMIN"}})
+
+// Imagens de captura
+db.imagensCaptura.insertOne({imagem:"img.jpg", captura: {createdAt:new Date("<2021-05-23T18:33:21>"),
+updatedAt:new Date("<2020-08-19T18:33:21>"), version: 1,placa:"kjk2323",
+ dataHora: new Date("<2020-08-29T18:33:21>"),detalhes:["EX"],
+ monitoramento: {createdAt:new Date("<2020-09-15>"),updatedAt:new Date("<2020-09-18T18:33:21>"),
+ version: 1, placa: "JJK2882", dataInicio:new Date("<2020-09-15T18:33:21>"),
+  dataFim:new Date("<2020-09-28T18:33:21>"), observacoes: ["Caso Fechado"],
+ isContinuo:0, usuario:{createdAt:new Date("<2020-08-15T18:33:21>"),
+ updatedAt: new Date("<2020-09-18T18:33:21>"), version: 1, nome:"Vlad",email:"vlad@email.com",
+ senha:"$2a$10$3iOMcZ5MqU96QeBkmFSGMul.MC/zl/vp2GgBj2fkkRj0xTg85qYdC",
+  isEmailVerificado:true,token:"exemplo", isAtivo:false, permissao:"ADMIN"}},
+camera:{createdAt:new Date("<2020-09-15T18:33:21>"),
+   updatedAt: new Date("<2020-08-15T18:33:21>"), version:1, nome:"EX",
+ mac: "ex", observacoes:["EX"], localizacao:{longitude:"dkj",latitude:"ex",
+ cidade:"ex"}}}})
+
+// Países
+ db.paises.insertOne({pais: "Brasil"})
+
+
+// Localizações
+db.localizacoes.insertOne({longitude:"dkj",latitude:"ex",cidade:{cidade:"ex",pais:{pais: "Brasil"}}})
+
+// Estados
+db.estados.insertOne({estado:"Paraná", pais:{pais: "Brasil"}})
+
+// Cidades
+ db.cidades.insertOne({cidade:"ex", pais:{pais: "Brasil"}})
