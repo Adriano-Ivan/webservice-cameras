@@ -50,15 +50,40 @@ exports.createLocalization = async(req, res) => {
   }
   
 };
-exports.updateLocalization = (req, res) => {
-  res.status(500).json({
-    status: "error",
-    message: "This route is not yet defined;",
-  });
+exports.updateLocalization =async (req, res) => {
+  try{
+    const localization =await Localization.findByIdAndUpdate(req.params.id,req.body,{
+      new:true,
+      runValidators:true
+    });
+
+    res.status(200).json({
+      status:'success',
+      data:{
+        localization
+      }
+    })
+  }catch(error){
+    res.status(404).json({
+      status: "error",
+      message: error,
+    });
+  }
 };
-exports.deleteLocalization = (req, res) => {
-  res.status(500).json({
-    status: "error",
-    message: "This route is not yet defined;",
-  });
+exports.deleteLocalization =async (req, res) => {
+  try{
+    await Localization.findByIdAndDelete(req.params.id);
+
+    res.status(204).json({
+      status:'success',
+      data:{
+        data:null
+      }
+    })
+  }catch(error){
+    res.status(404).json({
+      status: "error",
+      message:error,
+    });
+  }
 };

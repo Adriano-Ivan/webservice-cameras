@@ -54,15 +54,40 @@ exports.createCountry =async (req, res) => {
   }
   
 };
-exports.updateCountry = (req, res) => {
-  res.status(500).json({
-    status: "error",
-    message: "This route is not yet defined;",
-  });
+exports.updateCountry = async(req, res) => {
+  try{
+    const country =await Country.findByIdAndUpdate(req.params.id,req.body,{
+      new:true,
+      runValidators:true
+    });
+
+    res.status(200).json({
+      status:'success',
+      data:{
+        country
+      }
+    })
+  }catch(error){
+    res.status(404).json({
+      status: "error",
+      message: error,
+    });
+  }
 };
-exports.deleteCountry = (req, res) => {
-  res.status(500).json({
-    status: "error",
-    message: "This route is not yet defined;",
-  });
+exports.deleteCountry = async (req, res) => {
+  try{
+    await Country.findByIdAndDelete(req.params.id);
+
+    res.status(204).json({
+      status:'success',
+      data:{
+        data:null
+      }
+    })
+  }catch(error){
+    res.status(404).json({
+      status: "error",
+      message:error,
+    });
+  }
 };

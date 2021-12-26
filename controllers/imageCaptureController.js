@@ -51,15 +51,40 @@ exports.createImageCapture =async (req, res) => {
   }
   
 };
-exports.updateImageCapture = (req, res) => {
-  res.status(500).json({
-    status: "error",
-    message: "This route is not yet defined;",
-  });
+exports.updateImageCapture = async(req, res) => {
+  try{
+    const imageCapture =await ImageCapture.findByIdAndUpdate(req.params.id,req.body,{
+      new:true,
+      runValidators:true
+    });
+
+    res.status(200).json({
+      status:'success',
+      data:{
+        imageCapture
+      }
+    })
+  }catch(error){
+    res.status(404).json({
+      status: "error",
+      message: error,
+    });
+  }
 };
-exports.deleteImageCapture = (req, res) => {
-  res.status(500).json({
-    status: "error",
-    message: "This route is not yet defined;",
-  });
+exports.deleteImageCapture = async(req, res) => {
+  try{
+    await ImageCapture.findByIdAndDelete(req.params.id);
+
+    res.status(204).json({
+      status:'success',
+      data:{
+        data:null
+      }
+    })
+  }catch(error){
+    res.status(404).json({
+      status: "error",
+      message:error,
+    });
+  }
 };

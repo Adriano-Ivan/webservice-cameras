@@ -50,15 +50,42 @@ exports.createCamera = async(req, res) => {
   }
  
 };
-exports.updateCamera = (req, res) => {
-  res.status(500).json({
-    status: "error",
-    message: "This route is not yet defined;",
-  });
+exports.updateCamera = async(req, res) => {
+  try {
+    const camera = await Camera.findByIdAndUpdate(req.params.id,req.body, {
+      new:true,
+      runValidators:true
+    });
+
+    res.status(200).json({
+      status:'success',
+      data:{
+        camera
+      }
+    })
+  }catch(error){
+    res.status(404).json({
+      status: "fail",
+      message: error
+    });
+  }
+ 
 };
-exports.deleteCamera = (req, res) => {
-  res.status(500).json({
-    status: "error",
-    message: "This route is not yet defined;",
-  });
+exports.deleteCamera = async(req, res) => {
+  try{
+    await Camera.findByIdAndDelete(req.params.id);
+
+    res.status(204).json({
+      status:'success',
+      data:{
+        data:null
+      }
+    })
+  }catch(error){
+    res.status(404).json({
+      status: "fail",
+      message: error,
+    });
+  }
+  
 };

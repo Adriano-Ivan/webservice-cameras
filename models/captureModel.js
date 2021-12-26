@@ -16,7 +16,7 @@ const captureSchema=new mongoose.Schema({
         required:[true,'A number version must be specified']
     },
     placa:{
-        type:Number,
+        type:String,
         required:[true,'A number plate must be specified']
     },
     dataHora:{
