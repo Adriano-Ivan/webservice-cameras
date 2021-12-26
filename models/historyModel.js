@@ -35,4 +35,4 @@ const historySchema=new mongoose.Schema({
 });
 
 exports.schema=historySchema;
-exports.History=mongoose.model('historicosEdicaoCaptura',historySchema);
+exports.History=mongoose.model('historicos_Edicao_Captura',historySchema);

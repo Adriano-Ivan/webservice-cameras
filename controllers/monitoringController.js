@@ -13,7 +13,7 @@ exports.getAllMonitorings = async(req, res) => {
       },
     });
   }catch(err){
-    res.status(400).json({
+    res.status(404).json({
       status:'fail',
       message:err
     })
@@ -31,7 +31,7 @@ exports.getMonitoring =async(req, res) => {
       }
     })
   }catch(err){
-    res.status(400).json({
+    res.status(404).json({
       status:'fail',
       message:err
     })
@@ -39,13 +39,15 @@ exports.getMonitoring =async(req, res) => {
 };
 exports.createMonitoring =async (req, res) => {
   try {
+   // const newMonitoring=new Monitoring({}) 
+   // newMonitoring.save()
     const newMonitoring=await Monitoring.create(req.body)
 
     console.log(newMonitoring);
     res.status(201).json({
       status: "success",
       data: {
-        tour: newMonitoring,
+         newMonitoring,
       },
     });
   }catch(err){
@@ -56,25 +58,47 @@ exports.createMonitoring =async (req, res) => {
   }
   
 };
-exports.updateMonitoring = (req, res) => {
-  const status =
-    req.params["id"] * 1 <= monitoringsExample[monitoringsExample.length - 1].id
-      ? 200
-      : 404;
-  res.status(200).json({
-    status: "success",
-    data: {
-      data: "<Updated monitoring>...",
-    },
-  });
+exports.updateMonitoring =async (req, res) => {
+  try{
+    const monitoring=await Monitoring.findByIdAndUpdate(req.params.id,req.body,{
+      new:true,
+      runValidators:true
+    })
+    res.status(200).json({
+      status: "success",
+      data: {
+        
+          monitoring
+        
+      },
+    });
+  }catch(error){
+    res.status(404).json({
+      status:'fail',
+      message:error
+    })
+  }
+  
 };
-exports.deleteMonitoring = (req, res) => {
-  res.status(204).json({
-    status: "success",
-    data: {
-      data: null,
-    },
-  });
+exports.deleteMonitoring =async(req, res) => {
+  try{
+    await Monitoring.findByIdAndDelete(req.params.id);
+    
+    res.status(204).json({
+      status: "success",
+      data: {
+        data: null,
+      },
+    });
+  }catch(error){
+    res.status(404).json({
+      status:"fail",
+      data:{
+        data:null
+      }
+    })
+  }
+
 };
 
 // exports.checkID = (req, res, next, val) => {

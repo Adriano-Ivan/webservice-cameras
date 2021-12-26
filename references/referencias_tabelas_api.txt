@@ -15,6 +15,19 @@ senha:"$2a$10$3iOMcZ5MqU96QeBkmFSGMul.MC/zl/vp2GgBj2fkkRj0xTg85qYdC",
  senha:"$2a$10$3iOMcZ5MqU96QeBkmFSGMul.MC/zl/vp2GgBj2fkkRj0xTg85qYdC",
   isEmailVerificado:true,token:"exemplo", isAtivo:false, permissao:"ADMIN"})
 
+  {
+  nome: "Exemplo",
+  email: "ex2@email.com",
+  senha: "kdjfkjfj3@iwjh?",
+  isEmailVerificado: true,
+  token: "kdkfjdkfjdkjfd",
+  isAtivo: true,
+  permissao: "ADMIN",
+  version: 1,
+  createdAt: new Date("2020-09-15T18:33:21"),
+  updatedAt: new Date("2020-09-28T18:33:21"),
+}
+
 // Câmeras
 db.cameras.insertOne({createdAt:new Date("<2020-09-15T18:33:21>"),
  updatedAt: new Date("<2020-08-15T18:33:21>"), version:1, nome:"EX", 

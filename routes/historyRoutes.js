@@ -8,13 +8,13 @@ router.param("id", (req, res, next, val) => {
 });
 router
   .route("/")
-  .get(historicController.getAllHistoric)
-  .post(historicController.createHistoric);
+  .get(historicController.getAllHistories)
+  .post(historicController.createHistory);
 
 router
   .route("/:id")
-  .get(historicController.getHistoric)
-  .patch(historicController.updateHistoric)
-  .delete(historicController.deleteHistoric);
+  .get(historicController.getHistory)
+  .patch(historicController.updateHistory)
+  .delete(historicController.deleteHistory);
 
 module.exports = router;

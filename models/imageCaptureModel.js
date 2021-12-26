@@ -13,4 +13,4 @@ const imageSchema=new mongoose.Schema({
 });
 
 exports.schema=imageSchema;
-exports.Image=mongoose.model('ImagensCaptura',imageSchema);
+exports.Image=mongoose.model('Imagens_Captura',imageSchema);
