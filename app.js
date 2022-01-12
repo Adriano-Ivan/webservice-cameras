@@ -12,6 +12,7 @@ const historyRouter = require("./routes/historyRoutes");
 const imageCaptureRouter = require("./routes/imageCaptureRoutes");
 const localizationRouter = require("./routes/localizationRoutes");
 const stateRouter = require("./routes/stateRoutes");
+const sendingsEndpointRouter=require('./routes/sendingsEndpointRouter');
 // Middleware
 if ((process.env.NODE_ENV = "development")) {
   app.use(morgan("dev"));
@@ -31,6 +32,7 @@ app.use((req, res, next) => {
 // Routes
 app.use("/api/v1/monitoramentos", monitoringRouter);
 app.use("/api/v1/usuarios", userRouter);
+app.use("/api/v1/sendings_endpoint",sendingsEndpointRouter);
 app.use("/api/v1/cameras", cameraRouter);
 app.use("/api/v1/capturas", captureRouter);
 app.use("/api/v1/cidades", cityRouter);
